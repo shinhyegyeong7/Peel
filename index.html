@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peel!</title>
+
+
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bebas+Neue&family=Cutive+Mono&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&family=Russo+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./font/font.css">
+
+    <!--favicon-->
+    <link rel="shortcut icon" href="./img/shriek.svg" type="image/x-icon">
+
+    <!--swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css"/>
+
+    <!--aos-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!--meta-->
+
+    <!-- GSAP & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!--css-->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!--header-->
+    <section id="header">
+        <div class="inner">
+            <h1>
+                <a href="#mb">
+                    <img src="./img/logo.png" alt="로고 이미지">
+                </a>
+            </h1>
+            <nav class="gnb title">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#product">Product</a></li>
+                    <li><a href="#best_review">Review</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li class="close">
+                        <img src="./img/close.svg" alt="닫기">
+                    </li>
+                </ul>
+            </nav>
+            <button type="button" class="hamberger">
+                <img src="./img/hamburger.svg" alt="햄버거버튼">
+            </button>
+        </div>
+    </section>
+
+
+    <!--mb-->
+    <!--main_banner-->
+    <section id="mb">
+        <div class="swiper mb_swiper">
+            <div class="swiper-wrapper">
+                <!-- 슬라이드 1 (사과) -->
+                <div class="swiper-slide">
+                    <!-- PC용 이미지 -->
+                    <img src="./img/main_banner1.jpg" alt="Peel the Fresh" class="banner-img pc-only">
+                    <!-- 모바일용 이미지 -->
+                    <img src="./img/main_banner_mobile1.jpg" alt="Peel the Fresh" class="banner-img mobile-only">
+                </div>
+
+                <!-- 슬라이드 2 (오렌지) -->
+                <div class="swiper-slide">
+                    <!-- PC용 이미지 -->
+                    <img src="./img/main_banner2.jpg" alt="Refresh Your Summer" class="banner-img pc-only">
+                    <!-- 모바일용 이미지 -->
+                    <img src="./img/main_banner_mobile2.jpg" alt="Refresh Your Summer" class="banner-img mobile-only">
+                </div>
+            </div>
+            <!-- 스크롤바 -->
+            <div class="swiper-scrollbar mb_bar"></div>
+        </div>
+    </section>
+
+
+    <!--about-->
+    <section id="about">
+        <!-- 1. 액체 배경 이미지 (슬라이드 2에서 background1-2.png로 교체) -->
+        <div class="liquid-bg-full">
+            <img src="./img/background1.png" alt="Liquid Background" class="change-bg">
+        </div>
+        <!-- 2. 스크롤 동안 화면 중앙에 고정되는 핀(Pin) 무대 -->
+        <div class="about-pin-stage">
+            <!-- 폭죽처럼 흩어질 동그라미 입자들 -->
+            <div class="circles-burst">
+                <img src="./img/ellipse1.png" class="circle c1" alt="동그라미">
+                <img src="./img/ellipse1.png" class="circle c2" alt="동그라미">
+                <img src="./img/ellipse1.png" class="circle c3" alt="동그라미">
+                <img src="./img/ellipse1.png" class="circle c4" alt="동그라미">
+                <img src="./img/ellipse2.png" class="circle c5" alt="동그라미">
+                <img src="./img/ellipse2.png" class="circle c6" alt="동그라미">
+                <img src="./img/ellipse2.png" class="circle c7" alt="동그라미">
+                <img src="./img/ellipse2.png" class="circle c8" alt="동그라미">
+            </div>
+            <!-- 중앙 병 & 흰색 원형 배경 (슬라이드 2에서 bottle2.png로 교체) -->
+            <div class="bottle-container">
+                <div class="circle-bg"></div>
+                <img src="./img/bottle.png" alt="Peel Bottle" class="bottle-img change-bottle">
+            </div>
+            <!-- 첫 번째 문구: Peel Away -->
+            <div class="text-wrapper text-group-1">
+                <span class="text-left text-filled title">Peel</span>
+                <span class="text-right text-stroke title">Away</span>
+            </div>
+            <!-- 두 번째 문구: Enjoy Fresh! -->
+            <div class="text-wrapper text-group-2">
+                <span class="text-left text-stroke title">Enjoy</span>
+                <span class="text-right text-filled title">Fresh!</span>
+            </div>
+        </div>
+        <!-- 3. 교차 브랜드 소개 영역 (슬라이드 2에서 about1-2.png, about2-2.png로 교체) -->
+        <div class="about-content">
+            <!-- 브랜드 소개 1 -->
+            <div class="intro-block block-1">
+                <div class="intro-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h3 class="title"><span class="highlight">Peel</span> the Fresh</h3>
+                    <p>
+                        <b>Peel!</b>은 과일 본연의 신선함을<br>
+                        가장 자연스러운 방식으로 전하는<br>
+                        <b>프리미엄 주스 브랜드</b>입니다.<br>
+                        <br>
+                        포장을 여는 순간부터 첫 모금까지<br>
+                        <b>신선함을 경험하는 모든 과정</b>으로 담아냈습니다.
+                    </p>
+                </div>
+                <div class="intro-img" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="./img/about1.png" alt="Peel the Fresh" class="change-about1">
+                </div>
+            </div>
+            <!-- 브랜드 소개 2 -->
+            <div class="intro-block block-2">
+                <div class="intro-img" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="./img/about2.png" alt="Designed to Peel" class="change-about2">
+                </div>
+                <div class="intro-text" data-aos="fade-left" data-aos-duration="1000">
+                    <h3 class="title">Designed to <span class="highlight">Peel</span></h3>
+                    <p>
+                        <b>Peel!</b>은 맛뿐만 아니라 <b>경험까지 디자인</b>합니다.<br>
+                        <br>
+                        병목의 포일을 벗기는 순간부터 제품을 손에 쥐는 감각까지<br>
+                        <b>특별한 신선함</b>을 완성합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--stemp-->
+    <div class="stamp-badge">
+        <!-- 제자리에서 회전할 텍스트 이미지 -->
+        <img src="./img/peelthefresh.png" alt="Peel The Fresh" class="stamp-text">
+        <!-- 중앙에 고정될 느낌표 이미지 -->
+        <img src="./img/shriek.svg" alt="Exclamation" class="stamp-icon">
+    </div>
+
+
+    <!--product-->
+    <section id="product">
+        <h2 class="title">Product</h3>
+        <!-- Swiper -->
+        <div class="swiper product_sw" data-aos="fade-up" data-aos-duration="600">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./img/product1.png" alt="사과주스">
+                    <div class="text_box">
+                        <div class="img_box">
+                            <img src="./img/apple.png" alt="애플">
+                        </div>
+                        <p>
+                            신선하게 수확한 사과의 아삭한 달콤함을 담았습니다.<br>
+                            750ml와 250ml 두 가지 사이즈로 언제 어디서나 즐길 수 있습니다.
+                        </p>
+                        <div class="btn-wrapper">
+                            <a href="#" class="title apple_bg">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./img/product2.png" alt="오렌지주스">
+                    <div class="text_box">
+                        <div class="img_box">
+                            <img src="./img/orange.png" alt="오렌지">
+                        </div>
+                        <p>
+                            상큼한 오렌지의 풍부한 과즙과 산뜻한 향을 그대로 담았습니다.<br>
+                            750ml와 250ml 두 가지 사이즈로 언제 어디서나 즐길 수 있습니다.
+                        </p>
+                        <div class="btn-wrapper">
+                            <a href="#" class="title orange_bg">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./img/product3.png" alt="체리주스">
+                    <div class="text_box">
+                        <div class="img_box">
+                            <img src="./img/cherry.png" alt="체리">
+                        </div>
+                        <p>
+                            달콤한 체리의 깊은 풍미와 은은한 향을 담았습니다.<br>
+                            750ml와 250ml 두 가지 사이즈로 언제 어디서나 즐길 수 있습니다.
+                        </p>
+                        <div class="btn-wrapper">
+                            <a href="#" class="title cherry_bg">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./img/product4.png" alt="샤인머스켓주스">
+                    <div class="text_box">
+                        <div class="img_box">
+                            <img src="./img/shinmuscat.png" alt="샤인머스켓">
+                        </div>
+                        <p>
+                            샤인머스켓의 청량한 향과 깔끔한 단맛을 담았습니다.<br>
+                            750ml와 250ml 두 가지 사이즈로 언제 어디서나 즐길 수 있습니다.
+                        </p>
+                        <div class="btn-wrapper">
+                            <a href="#" class="title shinmuscat_bg">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next product_next"></div>
+            <div class="swiper-button-prev product_prev"></div>
+        </div>
+    </section>
+
+
+    <!--best_review-->
+    <section id="best_review">
+        <h2 class="title">Best Review</h2>
+        <div class="inner">
+            <!-- Swiper -->
+            <div class="swiper best_sw">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="review_box" data-aos="flip-up" data-aos-duration="500">
+                            <div class="img_box">
+                                <img src="./img/review1.jpg" alt="리뷰1">
+                            </div>
+                            <div class="card">
+                                <div class="card_header">
+                                    <h3><span class="apple_bg">사과 주스 [750ml]</span></h3>
+                                    <img src="./img/star.png" alt="별점">
+                                </div>
+                                <div class="text_box">
+                                    <img src="./img/profile.png" alt="프로필">
+                                    <p>
+                                        가족이랑 같이 마시기 딱 좋은 용량이에요. 사과 향도 자연스럽고 많이 달지 않아서 계속 손이 갑니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review_box" data-aos="flip-up" data-aos-duration="500" data-aos-delay="100">
+                            <div class="img_box">
+                                <img src="./img/review2.jpg" alt="리뷰2">
+                            </div>
+                            <div class="card">
+                                <div class="card_header">
+                                    <h3><span class="apple_bg">사과 주스 [250ml]</span></h3>
+                                    <img src="./img/star.png" alt="별점">
+                                </div>
+                                <div class="text_box">
+                                    <img src="./img/profile.png" alt="프로필">
+                                    <p>
+                                        출근길에 하나씩 마시기 좋아요. 깔끔하고 부담 없는 맛이라 재구매할 것 같아요.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review_box" data-aos="flip-up" data-aos-duration="500" data-aos-delay="200">
+                            <div class="img_box">
+                                <img src="./img/review3.jpg" alt="리뷰3">
+                            </div>
+                            <div class="card">
+                                <div class="card_header">
+                                    <h3><span class="orange_bg">오렌지 주스 [750ml]</span></h3>
+                                    <img src="./img/star.png" alt="별점">
+                                </div>
+                                <div class="text_box">
+                                    <img src="./img/profile.png" alt="프로필">
+                                    <p>
+                                        오렌지의 상큼함이 진하게 느껴져서 브런치랑 정말 잘 어울렸어요. 병 디자인도 예뻐서 식탁에 두기 좋네요.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review_box" data-aos="flip-up" data-aos-duration="500" data-aos-delay="300">
+                            <div class="img_box">
+                                <img src="./img/review4.jpg" alt="리뷰4">
+                            </div>
+                            <div class="card">
+                                <div class="card_header">
+                                    <h3><span class="orange_bg">오렌지 주스 [250ml]</span></h3>
+                                    <img src="./img/star.png" alt="별점">
+                                </div>
+                                <div class="text_box">
+                                    <img src="./img/profile.png" alt="프로필">
+                                    <p>
+                                        산뜻해서 운동 끝나고 마시기 좋았어요. 시원하게 마시면 더 맛있습니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review_box" data-aos="flip-up" data-aos-duration="500" data-aos-delay="400">
+                            <div class="img_box">
+                                <img src="./img/review5.jpg" alt="리뷰5">
+                            </div>
+                            <div class="card">
+                                <div class="card_header">
+                                    <h3><span class="cherry_bg">체리 주스 [750ml]</span></h3>
+                                    <img src="./img/star.png" alt="별점">
+                                </div>
+                                <div class="text_box">
+                                    <img src="./img/profile.png" alt="프로필">
+                                    <p>
+                                        체리 향이 과하지 않고 은은해서 생각보다 훨씬 맛있었어요. 디저트랑 같이 마시기 좋습니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review_box" data-aos="flip-up" data-aos-duration="500" data-aos-delay="500">
+                            <div class="img_box">
+                                <img src="./img/review6.jpg" alt="리뷰6">
+                            </div>
+                            <div class="card">
+                                <div class="card_header">
+                                    <h3><span class="cherry_bg">체리 주스 [250ml]</span></h3>
+                                    <img src="./img/star.png" alt="별점">
+                                </div>
+                                <div class="text_box">
+                                    <img src="./img/profile.png" alt="프로필">
+                                    <p>
+                                        평소 체리를 좋아해서 구매했는데 기대 이상이었어요. 적당히 달콤해서 부담 없이 마실 수 있어요.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review_box" data-aos="flip-up" data-aos-duration="500" data-aos-delay="600">
+                            <div class="img_box">
+                                <img src="./img/review7.jpg" alt="리뷰7">
+                            </div>
+                            <div class="card">
+                                <div class="card_header">
+                                    <h3><span class="shinmuscat_bg">샤인머스켓 주스 [750ml]</span></h3>
+                                    <img src="./img/star.png" alt="별점">
+                                </div>
+                                <div class="text_box">
+                                    <img src="./img/profile.png" alt="프로필">
+                                    <p>
+                                        샤인머스켓 특유의 향이 살아 있어서 정말 만족했습니다. 손님 왔을 때 내놓기에도 좋을 것 같아요.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review_box" data-aos="flip-up" data-aos-duration="500" data-aos-delay="700">
+                            <div class="img_box">
+                                <img src="./img/review8.jpg" alt="리뷰8">
+                            </div>
+                            <div class="card">
+                                <div class="card_header">
+                                    <h3><span class="shinmuscat_bg">샤인머스켓 주스 [250ml]</span></h3>
+                                    <img src="./img/star.png" alt="별점">
+                                </div>
+                                <div class="text_box">
+                                    <img src="./img/profile.png" alt="프로필">
+                                    <p>
+                                        향이 정말 좋아요. 한 병이 금방 없어질 정도로 깔끔하고 청량한 맛입니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next product_next"></div>
+                <div class="swiper-button-prev product_prev"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--gallery-->
+    <section id="gallery">
+        <!-- 화면 양쪽 끝에 붙는 단색 배경 이미지들 -->
+        <img src="./img/background3.png" alt="포인트 배경 우측" class="bg_point bg_right">
+        <img src="./img/background4.png" alt="포인트 배경 좌측" class="bg_point bg_left">
+
+        <h2 class="title">Gallery</h2>
+        <div class="inner">
+            <div class="gallery_grid">
+                <!-- 1. 체리 (왼쪽 상단 큰 박스) -->
+                <div class="grid_item item_cherry" data-aos="slide-right" data-aos-duration="700">
+                    <img src="./img/gallery1.png" alt="체리 주스">
+                </div>
+
+                <!-- 2. 사과 (오른쪽 상단 박스) -->
+                <div class="grid_item item_apple" data-aos="slide-up" data-aos-duration="700">
+                    <img src="./img/gallery2.png" alt="사과 주스">
+                </div>
+
+                <!-- 3. 청포도 잔 (왼쪽 하단 1) -->
+                <div class="grid_item item_grape_glass" data-aos="slide-right" data-aos-duration="700">
+                    <img src="./img/gallery3.png" alt="청포도 에이드">
+                </div>
+
+                <!-- 4. 청포도 병 (왼쪽 하단 2) -->
+                <div class="grid_item item_grape_bottle" data-aos="slide-up" data-aos-duration="700">
+                    <img src="./img/gallery4.png" alt="청포도 주스 병">
+                </div>
+
+                <!-- 5. 오렌지 (오른쪽 하단 큰 박스) -->
+                <div class="grid_item item_orange" data-aos="slide-left" data-aos-duration="700">
+                    <img src="./img/gallery5.png" alt="오렌지 주스">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--ment-->
+    <section id="ment">
+        <div class="inner" data-aos="zoom-in" data-aos-duration="400">
+            <h1 class="title">
+                Ready to <span class="highlight">Peel?</span>
+            </h1>
+        </div>
+    </section>
+
+
+    <footer id="footer">
+        <a href="#mb">
+            <img src="./img/footer_logo.png" alt="푸터로고">
+        </a>
+        <p>
+            주식회사 (주)주식회사 ㅣ 대표 성이름<br>
+            대표 메일 : oo@peel.com ㅣ 마케팅 : ee@peel.com<br>
+            사업자 등록번호 000-00-00000<br>
+            주소 : 부산 oo구 oo로 oo oo스튜디오동 17층 1704
+        </p>
+        <a href="#mb">
+            <img src="./img/top.png" alt="위로">
+        </a>
+    </footer>
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+    <!--swiper-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
+
+    <!--gsap-->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <!--aos-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <!--mb_swiper-->
+        <!-- mb_swiper 연동 스크립트 -->
+    <script>
+        var mbSwiper = new Swiper('.mb_swiper', {
+            scrollbar: {
+            el: '.swiper-scrollbar',
+            },
+            loop: true,
+            on: {
+            slideChange: function () {
+                // loop 옵션 사용 시 realIndex로 현재 슬라이드 번호(0부터 시작) 확인
+                var currentIndex = this.realIndex;
+
+                // 바꾸고자 하는 이미지 요소 선택
+                var $bg = document.querySelector('.change-bg');
+                var $bottle = document.querySelector('.change-bottle');
+                var $about1 = document.querySelector('.change-about1');
+                var $about2 = document.querySelector('.change-about2');
+
+                if (currentIndex === 0) {
+                // 1번째 배너 (사과)
+                $bg.src = './img/background1.png';
+                $bottle.src = './img/bottle.png';
+                $about1.src = './img/about1.png';
+                $about2.src = './img/about2.png';
+                } else if (currentIndex === 1) {
+                // 2번째 배너 (오렌지)
+                $bg.src = './img/background1-2.png';
+                $bottle.src = './img/bottle2.png';
+                $about1.src = './img/about1-2.png';
+                $about2.src = './img/about2-2.png';
+                }
+            }
+            }
+        });
+    </script>
+
+    <!--product_sw-->
+    <script>
+      var swiper = new Swiper('.product_sw', {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        loop: true,
+      });
+    </script>
+
+    <!--best_sw-->
+    <script>
+        var swiper = new Swiper('.best_sw', {
+            slidesPerView: 1, /* 모바일 기본: 1개씩 표시 */
+            spaceBetween: 20,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                /* 768px 이상 (태블릿) */
+                651: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                },
+                /* 1200px 이상 (데스크톱) */
+                1025: {
+                slidesPerView: 3, /* PC에서 3개씩 보고 싶다면 숫자를 늘리셔도 됩니다 */
+                spaceBetween: 30,
+                }
+            }
+        });
+    </script>
+
+    <!--부드러운 이동-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script>
+		$(function() {
+			$('a[href*="#"]:not([href="#"])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+			$('html, body').animate({
+			scrollTop: target.offset().top
+			}, 500);//움직이는 시간 조정
+			return false;
+			}
+			}
+			});
+			});
+	</script>
+
+    <script src="./js/script.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

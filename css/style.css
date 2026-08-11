@@ -1,0 +1,827 @@
+@charset "utf-8";
+
+:root {
+    --main_color: #F0563A;
+    --sub_color: #FF9DB1;
+    --apple: #E94F45;
+    --orange: #F78B2D;
+    --cherry: #D94A6B;
+    --shin_muscat: #A9D65E;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul, ol{
+    list-style: none;
+}
+img, video, iframe{
+    display: block;
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+.title{
+    font-family: "Paperozi";
+    text-align: center;
+}
+
+.inner{
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.point{
+    color: var(--main_color);
+}
+
+
+/*header*/
+#header{
+    border-top: var(--main_color) 10px solid;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+#header .inner{
+    display: flex;
+    align-items: center;
+    gap: clamp(10px,1vw,60px);
+    padding: 15px 20px;
+}
+#header h1{
+  width: 100%;
+}
+#header .gnb ul{
+    display: flex;
+    gap: clamp(10px,1vw,60px);
+    font-weight: 700;
+}
+#header .gnb ul li a{
+    padding: clamp(10px,3vw,20px);
+}
+
+.hamberger{
+    background:none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: none;
+    /*pc, 테블릿에서는 안보이게 만듦*/
+}
+.close{
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+
+/*mb*/
+#mb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#mb .mb_bar{
+    background-color: rgba(255, 157, 177, 40%);
+    max-width: 400px;
+    margin: 30px;
+}
+
+#mb .mb_bar .swiper-scrollbar-drag{
+    background-color: var(--main_color);
+}
+/* PC/데스크톱 기본 설정 (style.css 상단에 추가 또는 확인) */
+.mobile-only {
+    display: none !important;
+}
+
+
+/* style.css 하단에 추가 */
+.change-bg,
+.change-bottle,
+.change-about1,
+.change-about2 {
+    transition: src 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+
+/*about*/
+#about {
+  position: relative;
+  width: 100%;
+  height: 4440px;
+  background-color: #ffffff; 
+  overflow: hidden;
+  text-align: center;
+}
+
+/* 액체 흐름 배경 컨테이너 */
+.liquid-bg-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* #about 섹션 높이에 고정 */
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.liquid-bg-full img {
+  width: 100%;
+  height: 100%; /* 세로 높이를 100%로 고정 */
+  display: block;
+  
+  /* [핵심] 높이는 그대로 유지하고, 화면 폭이 줄어들면 양 옆만 깎이게 설정 */
+  object-fit: cover; 
+  
+  /* [핵심] 상단 중앙을 기준으로 고정하여 액체 상단 위치와 중앙 굴곡 유지 */
+  object-position: top center; 
+}
+
+/* 1. 고정 무대 영역 */
+.about-pin-stage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* 병 이미지 및 배경 원 */
+.bottle-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-bg {
+  position: absolute;
+  width: min(210px, 25vw);
+  height: min(210px, 25vw);
+  background-color: #ffffff;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 0 10px 30px rgba(51, 51, 51, 0.05);
+}
+
+.bottle-img {
+  max-height: 80vh; /* 화면 높이에 맞춰 반응형 조절 */
+  width: auto;
+  object-fit: contain;
+}
+
+/* 텍스트 영역 */
+.text-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(800px, 85vw); /* 화면 너비에 맞게 유동적 변경 */
+  font-size: clamp(36px, 5vw, 80px); /* 반응형 폰트 크기 */
+  font-weight: 900;
+  pointer-events: none;
+  z-index: 11;
+}
+
+.text-filled {
+  color: var(--main_color);
+}
+
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px #333;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+}
+
+.text-group-2 {
+  opacity: 0;
+}
+
+/* 폭죽 입자 세팅 */
+.circles-burst {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.c1 { width: clamp(20px, 3vw, 42px); }
+.c2 { width: clamp(25px, 4vw, 58px); }
+.c3 { width: clamp(15px, 2vw, 30px); }
+.c4 { width: clamp(30px, 4.5vw, 68px); }
+.c5 { width: clamp(18px, 2.5vw, 38px); }
+.c6 { width: clamp(22px, 3.5vw, 50px); }
+.c7 { width: clamp(16px, 2.2vw, 32px); }
+.c8 { width: clamp(24px, 3.8vw, 52px); }
+
+/* 2. 교차 브랜드 소개 영역 */
+/* 브랜드 소개 콘텐츠 */
+.about-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1300px;
+  margin: 0 auto;
+  /* 콘텐츠 아래로 액체 굴곡 끝부분이 보이도록 여백 확보 */
+}
+
+.intro-block {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 140px;
+}
+
+.intro-block:last-child {
+  margin-bottom: 0;
+}
+
+.intro-text {
+  width: 50%;
+}
+
+.intro-text h3 {
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.highlight {
+  color: var(--main_color);
+}
+
+.intro-text p {
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.65;
+  color: #333;
+}
+
+.intro-img {
+  width: 50%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(51, 51, 51, 0.15);
+}
+
+.intro-img img {
+  width: 100%;
+  display: block;
+}
+
+
+/*stamp*/
+/* 1. 도장 전체 컨테이너 크기 확대 (기존 120px -> 160px로 변경) */
+.stamp-badge {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* 왼쪽 마진을 자동으로 채워 우측으로 배치 */
+  margin-left: auto; 
+  right: clamp(40px,10vw,200px);
+}
+
+/* 2. 둘러싼 글자 이미지 (부모 크기 160px에 맞춰 자동으로 커짐) */
+.stamp-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  
+  /* 회전 애니메이션 */
+  animation: rotateStamp 10s linear infinite;
+}
+
+/* 3. 중앙 느낌표 크기 미세 조절 */
+.stamp-icon {
+  position: absolute;
+  /* 글자가 커진 만큼 느낌표가 너무 커 보이지 않도록 비율 조절 */
+  width: 15%;  /* 느낌표가 너무 작아 보이면 30%, 너무 크면 20%로 조절하세요 */
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 회전 키프레임 */
+@keyframes rotateStamp {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*product*/
+#product{
+  padding-bottom: clamp(100px,6vw,200px);
+}
+#product .title{
+  padding-bottom: clamp(60px,6vw,120px);
+}
+#product .swiper-slide{
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  align-items: center;
+  padding: 0 120px;
+}
+#product .swiper-slide > img{
+  width: 50%;
+}
+#product .swiper-slide .text_box{
+  width: 50%;
+}
+#product .text_box .img_box{
+  width: 50%;
+}
+#product .text_box .img_box img{
+  max-width: 100%;
+}
+#product .text_box p{
+  padding: clamp(20px,4vw,70px) 0;
+}
+#product .text_box a{
+  display: inline-block;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 24px;
+  font-weight: 700;
+}
+#product .btn-wrapper{
+  width: 100%;
+  text-align: right;
+}
+
+.apple_bg{
+  background-color: var(--apple);
+}
+.orange_bg{
+  background-color: var(--orange);
+}
+.cherry_bg{
+  background-color: var(--cherry);
+}
+.shinmuscat_bg{
+  background-color: var(--shin_muscat);
+}
+
+.product_prev::after{
+    content: url(../img/left.png);
+    padding-left: clamp(20px,4vw,50px);
+}
+.product_next::after{
+    content: url(../img/right.png);
+    padding-right: clamp(20px,4vw,50px);
+}
+
+
+/*best_review*/
+#best_review{
+  padding-bottom: clamp(100px,6vw,200px);
+  background-image: url(../img/background2.png);
+  height: 1250px;
+  overflow: hidden;
+}
+#best_review .title{
+  padding: 240px 0 120px;
+}
+/* 스와이퍼 영역 및 그림자 잘림 방지 */
+/* PC 기본 Swiper 여백 수정 */
+#best_review .swiper.best_sw {
+  padding: 20px 80px 40px; /* 좌우 200px -> 80px 정도로 조정하여 여백 확보 */
+  overflow: visible;
+}
+
+/* 카드 박스 너비 설정 */
+#best_review .review_box {
+  width: 100%;
+  max-width: 360px; /* PC에서의 최대 너비 */
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* 상단 이미지 영역 */
+#best_review .img_box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#best_review .img_box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 하단 텍스트 및 헤더 영역 (card) */
+#best_review .card {
+  padding: 24px 20px 28px;
+  height: 200px;
+}
+
+/* 태그 & 별점 헤더 */
+#best_review .card_header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#best_review .card_header h3 span{
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: clamp(14px,2vw,18px);
+}
+
+#best_review .card_header h3{
+  padding-bottom: 20px;
+}
+
+/* 별점 이미지 */
+#best_review .card_header > img {
+  height: 16px; /* 별점 이미지 높이 조절 */
+  width: auto;
+  display: block;
+}
+
+/* 프로필 + 리뷰 내용 영역 */
+#best_review .text_box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* 프로필 이미지 */
+#best_review .text_box > img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* 리뷰 텍스트 */
+#best_review .text_box p {
+  word-break: keep-all; /* 한글 단어 단위 개행 */
+  margin: 2px 0 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* 자르고 싶은 줄 수 지정 (3줄) */
+  overflow: hidden;
+}
+
+
+/*gallery*/
+/* Gallery 섹션 메인 */
+#gallery {
+  position: relative;
+  width: 100%;
+  padding-bottom: clamp(100px,6vw,200px);
+  background-color: #ffffff;
+  overflow: hidden; /* 배경 이미지가 화면 밖으로 넘쳐 스크롤 생기는 것 방지 */
+}
+
+#gallery .title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #333333;
+  position: relative;
+  z-index: 2;
+}
+
+/* 갤러리 중앙 정렬 박스 (요청하신 1600px 세팅) */
+#gallery .inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: clamp(20px,10vw,120px);
+  position: relative;
+  z-index: 2; /* 배경 이미지 위로 그리드가 오도록 z-index 세팅 */
+}
+
+/* ===== 화면 양쪽 끝 포인트 배경 이미지 ===== */
+#gallery .bg_point {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* background3.png (우측 상단 끝) */
+#gallery .bg_right {
+  top: 180px;      /* 디자인에 맞게 위쪽 위치 조절 */
+  right: 0;        /* 화면 오른쪽 끝 붙임 */
+  height: auto;
+  max-width: clamp(200px,20vw,400px); /* 이미지 원본 크기에 맞게 조절 */
+}
+
+/* background4.png (좌측 하단 끝) */
+#gallery .bg_left {
+  bottom: 80px;    /* 디자인에 맞게 아래쪽 위치 조절 */
+  left: 0;         /* 화면 왼쪽 끝 붙임 */
+  height: auto;
+  max-width: clamp(200px,20vw,350px); /* 이미지 원본 크기에 맞게 조절 */
+}
+
+/* ===== CSS Grid 레이아웃 ===== */
+.gallery_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px,3vw,30px);
+}
+
+/* 모든 그리드 아이템 기본 스타일 */
+.grid_item {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.grid_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== 각 카드별 Grid 위치 및 크기 지정 ===== */
+
+/* 체리 (왼쪽 상단 2x2) */
+.item_cherry {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  aspect-ratio: 1 / 1;
+}
+
+/* 사과 (오른쪽 상단) */
+.item_apple {
+  grid-column: 3 / 5;
+  grid-row: 1 / 2;
+  aspect-ratio: 16 / 10;
+}
+
+/* 청포도 잔 (왼쪽 하단 1) */
+.item_grape_glass {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  aspect-ratio: 3 / 4;
+}
+
+/* 청포도 병 (왼쪽 하단 2) */
+.item_grape_bottle {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  aspect-ratio: 3 / 4;
+}
+
+/* 오렌지 (오른쪽 하단) */
+.item_orange {
+  grid-column: 3 / 5;
+  grid-row: 2 / 3;
+  aspect-ratio: 1 / 1;
+}
+
+
+/*ment*/
+#ment{
+  padding: 200px 0;
+  background-image: url(../img/background5.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#ment .title{
+  font-weight: 900;
+  font-size: clamp(56px,10vw,72px);
+}
+
+
+/*footer*/
+#footer{
+  background-color: var(--main_color);
+  padding: clamp(60px,2vw,80px) 0;
+  text-align: center;
+  border-radius: 60px 60px 0 0;
+}
+#footer p {
+  padding: 35px;
+  font-size: 14px;
+  color: #fff;
+}
+#footer > a {
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*tablet*/
+@media (max-width:1024px){
+  /*about*/
+  .intro-block {
+    gap: 40px;
+    margin-bottom: 100px;
+  }
+
+
+  /*product*/
+  #product .swiper-slide{
+    display: block;
+    padding: 0 clamp(50px,16vw,80px);
+  }
+  #product .swiper-slide img{
+    width: 100%;
+  }
+  #product .swiper-slide .text_box{
+    width: 100%;
+    padding-top: clamp(20px,6vw,80px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*mobile*/
+@media (max-width:650px){
+  /*header*/
+  .hamberger{
+    display: block;
+  }
+  .gnb{
+    /*1. 처음에는 gnb가 나타났을때 모습을 기준으로 css를 꾸민다.*/
+    z-index: 999;
+    position: fixed;
+    top:0;
+    right: 0;
+    background-color: rgba(255, 157, 177, 40%);
+    width: 50%;
+    height: 100vh;
+    padding: 80px;
+    
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+   
+  .gnb ul{
+    flex-direction: column;
+  }
+  .gnb ul li a{
+      padding: 0px;
+      padding-bottom: 10px;
+      margin: 20px 0;
+  }
+  .close{
+      display: block;
+      position: absolute;
+      top:20px;
+      right:15px;
+  }
+  .gnb{
+      transform: translateX(100%);
+      transition: all 0.5s;
+  }
+  .gnb.active{
+      transform: translateX(0);
+  }
+
+
+  /*mb*/
+  /* PC 이미지 숨김 / 모바일 이미지 노출 */
+  .pc-only {
+      display: none !important;
+  }
+    
+  .mobile-only {
+      display: block !important;
+  }
+
+  /* 배너 섹션 및 Swiper 높이 설정 (모바일 뷰포트 꽉 채우기) */
+  #mb,
+  #mb .mb_swiper,
+  #mb .swiper-slide {
+      width: 100%;
+      height: 100vh; /* 모바일 화면 높이 꽉 채움 */
+  }
+
+  /* 모바일 이미지 꽉 채우기 처리 */
+  #mb .banner-img.mobile-only {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 비율 유지하며 화면 가득 채움 */
+      object-position: center;
+  }
+
+  /* Swiper 스크롤바 모바일 위치 조정 */
+  #mb .swiper-scrollbar {
+      width: 60%;
+  }
+  #mb .mb_bar {
+      width: 60%;
+  }
+
+
+  /*about*/
+  #about {
+    min-height: 200vh;
+  }
+
+  .text-wrapper {
+    width: 90vw;
+  }
+
+  .bottle-img {
+    max-height: 60vh;
+  }
+
+  .about-content {
+    padding: 60px 20px 100px;
+  }
+
+  /* 모바일에서는 교차 레이아웃을 세로 1열로 정렬 */
+  .intro-block {
+    flex-direction: column !important;
+    gap: 24px;
+    margin-bottom: 140px;
+  }
+
+  /* block-2 (Designed to Peel) 순서 제어 */
+  .intro-block.block-2 {
+    /* flex-direction을 column-reverse로 설정하여 텍스트가 위, 이미지가 아래로 오게 지정 */
+    flex-direction: column-reverse !important; 
+  }
+
+  /* 텍스트 및 이미지 너비 100% 정렬 */
+  .intro-text, 
+  .intro-img {
+    width: 100%;
+  }
+
+  .intro-text {
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  .intro-text h3 {
+    margin-bottom: 12px;
+  }
+}
